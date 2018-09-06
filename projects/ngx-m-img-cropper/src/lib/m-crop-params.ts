@@ -1,7 +1,7 @@
 import {isUndefined} from 'util';
 export class MCropParams {
   id ?= '#1314520';
-  xMargin ?= 40;
+  xMargin ?= 30;
   yMargin ?= 20;
   maxWidth ?= 600;
   minWidth ?= 300;
