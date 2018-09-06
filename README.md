@@ -1,27 +1,79 @@
-# NgxMImgCropperDemo
+# ngx-m-img-cropper - Angular Mobile Image Crop
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.3.
+## Demo
+[Live Demo](https://lichangfeng.github.io/ngx-m-img-cropper/)
 
-## Development server
+## Dependencies
+* [Angular](https://angular.io) (*requires* Angular 4 or higher, tested with 4.4.6)
+* [hammerjs](http://hammerjs.github.io/) (*requires* 2.0.8 or higher)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Installation
 
-## Code scaffolding
+```shell
+npm i hammerjs
+npm i ngx-m-img-cropper
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+add hammerjs script in angular.json
+```shell
+"scripts": [
+              "./node_modules/hammerjs/hammer.js", ...
+            ]
+```
 
-## Build
+Once installed you need to import the main module:
+```js
+import {ImgCropperModule} from 'ngx-m-img-cropper';
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+@NgModule({
+  declarations: [AppComponent, ...],
+  imports: [ImgCropperModule, ...],  
+  bootstrap: [AppComponent]
+})
+export class AppModule {
+}
+```
+the cropped image 's background color is green, you can change it by provide a MCropParams
+```js
+ providers: [
+    {provide: MCropParams, useValue: {backgroundColor: '#f0f0f0'}}, ...
+  ]
+```
 
-## Running unit tests
+add the m-img-cropper componet to your app.component.html
+```js
+<m-img-cropper></m-img-cropper>
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Usage
 
-## Running end-to-end tests
+use it like this:
+```js
+import { Component, OnInit } from '@angular/core';
+import {ImgCropperService} from 'ngx-m-img-cropper';
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+@Component({
+  selector: '...',
+  templateUrl: '...',
+  styleUrls: ['...']
+})
+export class Mine1Component implements OnInit {
 
-## Further help
+  imgsrc = 'assets/header.jpg';
+  constructor(private imgCropperService: ImgCropperService) { }
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+  ngOnInit() {
+  }
+  click(): void {
+    this.imgCropperService.getCropImgData({width: 400, height: 300})
+      .then(data => {
+        this.imgsrc = data;
+      });
+  }
+```
+
+
+## License
+
+MIT License (MIT)
+

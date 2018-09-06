@@ -12,7 +12,7 @@ export class TestImgCropperComponent implements OnInit {
   constructor(private imgCropperService: ImgCropperService) { }
 
   ngOnInit() {
-    const config: MCropParams = new MCropParams({xMargin: 200});
+    const config: MCropParams = new MCropParams();
     console.log(config.xMargin);
   }
   click(): void {

@@ -4,7 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --host=10.0.3.11 -o",
-    "build": "ng build",
+    "build-github.io": "ng build --prod --base-href=ngx-m-img-cropper",
+    "build-lib": "ng build --prod ngx-m-img-cropper",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

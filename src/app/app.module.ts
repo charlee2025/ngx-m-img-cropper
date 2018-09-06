@@ -16,7 +16,7 @@ import {MCropParams} from '../../projects/ngx-m-img-cropper/src/lib/m-crop-param
     ImgCropperModule
   ],
   providers: [
-    {provide: MCropParams, useValue: new MCropParams({xMargin: 20})}
+    {provide: MCropParams, useValue: {backgroundColor: '#f0f0f0'}}
   ],
   bootstrap: [AppComponent]
 })

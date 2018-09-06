@@ -3,6 +3,7 @@ import {ImgCropperService} from './img-cropper.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {tryCatch} from 'rxjs/internal-compatibility';
 import {MCropParams} from './m-crop-params';
+import {isUndefined} from 'util';
 declare  var Hammer: any;
 @Component({
   selector: 'm-img-cropper',
@@ -31,7 +32,7 @@ declare  var Hammer: any;
   styles: []
 })
 export class ImgCropperComponent implements OnInit {
-  private cropParams: MCropParams;
+  private cropParams = new MCropParams();
   isShow = false;
   @ViewChild('mydiv')
   mydiv: ElementRef;
@@ -63,12 +64,16 @@ export class ImgCropperComponent implements OnInit {
   croppedImgCurrTop: number;
   constructor(private imgCropperService: ImgCropperService,
               private injector: Injector) {
-    this.cropParams = injector.get(MCropParams, new MCropParams());
+    const cropParams = injector.get(MCropParams, {});
+    for (const key in cropParams) {
+      if (!isUndefined(cropParams[key])) {
+        this.cropParams[key] = cropParams[key];
+      }
+    }
     console.log(this.cropParams);
   }
 
   ngOnInit() {
-    console.log(this.winHeight);
     if (location.hash.endsWith(this.cropParams.id)) {
       history.back();
       /*const newHash = location.hash.substr(0, location.hash.length - this.cropParams.id.length - 1);
@@ -196,11 +201,11 @@ export class ImgCropperComponent implements OnInit {
     const cropimgy = cropy1 - this.croppedImgTop;
     const myscale = this.croppedImgWidth / this.sourceImgWidth;
     dctx.rect(0, 0, this.targetWidth, this.targetHeight);
-    dctx.fillStyle = 'green';
+    dctx.fillStyle = this.cropParams.backgroundColor;
     dctx.fill();
     dctx.drawImage(this.croppedImg.nativeElement,
       cropimgx / myscale, cropimgy / myscale, cropw / myscale, croph / myscale,
-      (cropx1 - this.tboxLeft), (cropy1 - this.tboxTop), (cropx2 - cropx1) / tboxTargetRatio, (cropy2 - cropy1) / tboxTargetRatio);
+      (cropx1 - this.tboxLeft) / tboxTargetRatio, (cropy1 - this.tboxTop) / tboxTargetRatio, (cropx2 - cropx1) / tboxTargetRatio, (cropy2 - cropy1) / tboxTargetRatio);
     const dataUrl = dctx.canvas.toDataURL('image/jpeg');
     this.imgCropperService.sendImgData(dataUrl);
     this.close();
