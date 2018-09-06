@@ -5,7 +5,7 @@
     "ng": "ng",
     "start": "ng serve --host=10.0.3.11 -o",
     "build-github.io": "ng build --prod --base-href=ngx-m-img-cropper",
-    "build-lib": "ng build --prod ngx-m-img-cropper",
+    "build-lib": "ng build --prod ngx-m-img-cropper && copy README.md dist\\ngx-m-img-cropper\\README.md",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

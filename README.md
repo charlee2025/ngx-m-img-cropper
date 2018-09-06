@@ -77,3 +77,4 @@ export class Mine1Component implements OnInit {
 
 MIT License (MIT)
 
+end
