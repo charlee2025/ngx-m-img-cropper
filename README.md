@@ -1,0 +1,1 @@
+# ngx-m-img-cropper
