@@ -10,7 +10,9 @@ declare  var Hammer: any;
   template: `
     <div #mydiv
          [style.display]="isShow?'block':'none'"
-         style="position: fixed;z-index: 1000; top: 0; left: 0; right: 0; bottom: 0;width: 100%;height: 100%;background-color: black;">
+         [style.width]="winWidth + 'px'"
+         [style.height]="winHeight + 'px'"
+         style="position: fixed;z-index: 1000; top: 0; left: 0; right: 0; bottom: 0;background-color: black;">
       <canvas #drawCanvas style="display: none"></canvas>
       <input type="file" #selFile (change)="selectFile($event)" style="display: none;">
       <header style="width: 100%;height: 50px;background-color: darkslategray;position: absolute;z-index: 100;top: 0; left: 0;">
@@ -46,8 +48,8 @@ export class ImgCropperComponent implements OnInit {
   private croppedImg: ElementRef;
   private targetWidth: number;
   private targetHeight: number;
-  private winWidth = window.innerWidth;
-  private winHeight = window.innerHeight;
+  winWidth = window.innerWidth;
+  winHeight = window.innerHeight;
   private sourceImgWidth: number;
   private sourceImgHeight: number;
   tboxWidth = 0;
