@@ -14,7 +14,7 @@ declare  var Hammer: any;
          [style.height]="winHeight + 'px'"
          style="position: fixed;z-index: 1000; top: 0; left: 0; right: 0; bottom: 0;background-color: black;">
       <canvas #drawCanvas style="display: none"></canvas>
-      <input type="file" #selFile (change)="selectFile($event)" style="display: none;">
+      <input type="file" #selFile (change)="selectFile($event)" style="display: none;" accept="image/*">
       <header style="width: 100%;height: 50px;background-color: darkslategray;position: absolute;z-index: 100;top: 0; left: 0;">
         <button (click)="close()"
                 style="background-color: transparent;color: white;border: none;width: 50px;height: 30px;position: absolute;top: 10px;">
@@ -210,7 +210,8 @@ export class ImgCropperComponent implements OnInit {
       (cropx1 - this.tboxLeft) / tboxTargetRatio, (cropy1 - this.tboxTop) / tboxTargetRatio, (cropx2 - cropx1) / tboxTargetRatio, (cropy2 - cropy1) / tboxTargetRatio);
     const dataUrl = dctx.canvas.toDataURL('image/jpeg');
     this.imgCropperService.sendImgData(dataUrl);
-    this.close();
+    this.croppedImg.nativeElement.src = '#';
+      this.close();
   }
   close(): void {
     history.back();

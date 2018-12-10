@@ -5,7 +5,7 @@
 ![avatar](src/assets/demo_qrcode.png)
 
 ## Dependencies
-* [Angular](https://angular.io) (*requires* Angular 4 or higher, tested with 4.4.6)
+* [Angular](https://angular.io) (*requires* Angular 4 or higher, tested with 6.1.0)
 * [hammerjs](http://hammerjs.github.io/) (*requires* 2.0.8 or higher)
 
 ## Installation
