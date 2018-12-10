@@ -2,7 +2,7 @@
 
 ## Demo
 [Live Demo](https://lichangfeng.github.io/ngx-m-img-cropper/)
-![avatar](src/assets/demo_qrcode.png)
+![avatar](https://lichangfeng.github.io/ngx-m-img-cropper/assets/demo_qrcode.png)
 
 ## Dependencies
 * [Angular](https://angular.io) (*requires* Angular 4 or higher, tested with 6.1.0)
