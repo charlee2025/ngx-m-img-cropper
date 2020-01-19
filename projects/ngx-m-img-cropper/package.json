@@ -1,8 +1,24 @@
 {
   "name": "ngx-m-img-cropper",
-  "version": "8.0.1",
+  "version": "8.0.2",
+  "description": "mobile image crop",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lichangfeng/ngx-m-img-cropper.git"
+  },
+  "keywords": [
+    "angular",
+    "mobile",
+    "img crop",
+    "image crop",
+    "mobile crop"
+  ],
+  "author": "lichangfeng <lichangfeng>",
+  "homepage": "https://github.com/lichangfeng/ngx-m-img-cropper",
+  "license": "MIT",
   "peerDependencies": {
     "@angular/common": "^8.0.3",
-    "@angular/core": "^8.0.3"
+    "@angular/core": "^8.0.3",
+    "hammerjs": "^2.0.8"
   }
 }
