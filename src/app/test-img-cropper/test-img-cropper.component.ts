@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import {ImgCropperService} from '../../../projects/ngx-m-img-cropper/src/lib/img-cropper.service';
 import {MCropParams} from '../../../projects/ngx-m-img-cropper/src/lib/m-crop-params';
+import {ImgCropperService} from '../../../projects/ngx-m-img-cropper/src/lib/img-cropper.service';
 
 @Component({
   selector: 'app-test-img-cropper',
   templateUrl: './test-img-cropper.component.html',
-  styleUrls: ['./test-img-cropper.component.css']
+  styleUrls: ['./test-img-cropper.component.less']
 })
 export class TestImgCropperComponent implements OnInit {
   imgsrc = 'assets/header.jpg';

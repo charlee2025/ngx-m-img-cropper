@@ -4,11 +4,15 @@
   "newProjectRoot": "projects",
   "projects": {
     "ngx-m-img-cropper-demo": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "less"
+        }
+      },
       "root": "",
       "sourceRoot": "src",
-      "projectType": "application",
       "prefix": "app",
-      "schematics": {},
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -17,17 +21,16 @@
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
-            "tsConfig": "src/tsconfig.app.json",
+            "tsConfig": "tsconfig.app.json",
+            "aot": false,
             "assets": [
               "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.less"
             ],
-            "scripts": [
-              "./node_modules/hammerjs/hammer.js"
-            ]
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -45,7 +48,14 @@
               "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
-              "buildOptimizer": true
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
             }
           }
         },
@@ -71,36 +81,31 @@
           "options": {
             "main": "src/test.ts",
             "polyfills": "src/polyfills.ts",
-            "tsConfig": "src/tsconfig.spec.json",
-            "karmaConfig": "src/karma.conf.js",
-            "styles": [
-              "src/styles.css"
-            ],
-            "scripts": [],
+            "tsConfig": "tsconfig.spec.json",
+            "karmaConfig": "karma.conf.js",
             "assets": [
               "src/favicon.ico",
               "src/assets"
-            ]
+            ],
+            "styles": [
+              "src/styles.less"
+            ],
+            "scripts": []
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "src/tsconfig.app.json",
-              "src/tsconfig.spec.json"
+              "tsconfig.app.json",
+              "tsconfig.spec.json",
+              "e2e/tsconfig.json"
             ],
             "exclude": [
               "**/node_modules/**"
             ]
           }
-        }
-      }
-    },
-    "ngx-m-img-cropper-demo-e2e": {
-      "root": "e2e/",
-      "projectType": "application",
-      "architect": {
+        },
         "e2e": {
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
@@ -112,22 +117,13 @@
               "devServerTarget": "ngx-m-img-cropper-demo:serve:production"
             }
           }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": "e2e/tsconfig.e2e.json",
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
         }
       }
     },
     "ngx-m-img-cropper": {
+      "projectType": "library",
       "root": "projects/ngx-m-img-cropper",
       "sourceRoot": "projects/ngx-m-img-cropper/src",
-      "projectType": "library",
       "prefix": "m",
       "architect": {
         "build": {
@@ -135,11 +131,6 @@
           "options": {
             "tsConfig": "projects/ngx-m-img-cropper/tsconfig.lib.json",
             "project": "projects/ngx-m-img-cropper/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "project": "projects/ngx-m-img-cropper/ng-package.prod.json"
-            }
           }
         },
         "test": {
@@ -163,7 +154,6 @@
           }
         }
       }
-    }
-  },
+    }},
   "defaultProject": "ngx-m-img-cropper-demo"
 }

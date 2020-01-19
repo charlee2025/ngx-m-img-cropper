@@ -2,8 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import {ImgCropperModule} from '../../projects/ngx-m-img-cropper/src/lib/img-cropper.module';
 import { TestImgCropperComponent } from './test-img-cropper/test-img-cropper.component';
+import {ImgCropperModule} from '../../projects/ngx-m-img-cropper/src/lib/img-cropper.module';
 import {MCropParams} from '../../projects/ngx-m-img-cropper/src/lib/m-crop-params';
 
 @NgModule({
@@ -16,7 +16,7 @@ import {MCropParams} from '../../projects/ngx-m-img-cropper/src/lib/m-crop-param
     ImgCropperModule
   ],
   providers: [
-    {provide: MCropParams, useValue: {backgroundColor: '#f0f0f0'}}
+    {provide: MCropParams, useValue: {backgroundColor: 'rgba(255,255,255,0)'}}
   ],
   bootstrap: [AppComponent]
 })

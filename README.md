@@ -5,7 +5,7 @@
 ![avatar](https://lichangfeng.github.io/ngx-m-img-cropper/assets/demo_qrcode.png)
 
 ## Dependencies
-* [Angular](https://angular.io) (*requires* Angular 4 or higher, tested with 6.1.0)
+* [Angular](https://angular.io) (*requires* Angular 8 or higher, tested with 8.0.3)
 * [hammerjs](http://hammerjs.github.io/) (*requires* 2.0.8 or higher)
 
 ## Installation
@@ -15,11 +15,9 @@ npm i hammerjs
 npm i ngx-m-img-cropper
 ```
 
-add hammerjs script in angular.json
-```shell
-"scripts": [
-              "./node_modules/hammerjs/hammer.js", ...
-            ]
+import hammerjs in main.ts
+```
+import 'hammerjs';
 ```
 
 Once installed you need to import the main module:

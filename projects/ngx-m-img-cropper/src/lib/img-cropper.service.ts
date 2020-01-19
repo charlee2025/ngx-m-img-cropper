@@ -1,29 +1,29 @@
 import { Injectable } from '@angular/core';
-import {Observable, Observer} from 'rxjs';
 import {ImgCropConfig} from './img-crop-config';
+import {Observable, Observer} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ImgCropperService {
   private imgCropConfigObserver: Observer<ImgCropConfig>;
-  private imgCropConfig: Observable<ImgCropConfig> = Observable.create(observer => {
+  private imgCropConfig: Observable<ImgCropConfig> = new Observable(observer => {
     this.imgCropConfigObserver = observer;
   });
-  private resultResolve: Function;
-  private resultReject: Function;
+  private resultResolve: (value?: string | PromiseLike<string>) => void;
+  private resultReject: (reason?: any) => void;
   constructor() { }
 
   /**
    * 订阅截图配置项
-   * @param fun
+   * @param fun 配置
    */
   subscriptConfig(fun: (config: ImgCropConfig) => void): void {
     this.imgCropConfig.subscribe(fun);
   }
   /**
    * 发送截图的data uri
-   * @param data
+   * @param data 数据
    */
   sendImgData(data: string): void {
     this.resultResolve(data);
