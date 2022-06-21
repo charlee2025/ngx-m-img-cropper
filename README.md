@@ -1,8 +1,8 @@
 # ngx-m-img-cropper - Angular Mobile Image Crop
 
 ## Demo
-[Live Demo](https://lichangfeng.github.io/ngx-m-img-cropper/)
-![avatar](https://lichangfeng.github.io/ngx-m-img-cropper/assets/demo_qrcode.png)
+[Live Demo](https://charlee2025.github.io/ngx-m-img-cropper/)
+![avatar](https://charlee2025.github.io/ngx-m-img-cropper/assets/demo_qrcode.png)
 
 ## Dependencies
 * [Angular](https://angular.io) (*requires* Angular 8 or higher, tested with 8.0.3)
